@@ -8,7 +8,7 @@
     showMonthAndYear($month, $year);
     
     echo '<table cellspacing="16" cellpadding="16" align="center">';
-        showDaysOftheWeek($daysOfTheWeek);
+        showDaysOfTheWeek($daysOfTheWeek);
         showDays($firstDayOfWeek, $monthDays, $filename);   
     echo "</table>";
   }
@@ -23,7 +23,7 @@
 
 
 
-  function showDaysOftheWeek($days){
+  function showDaysOfTheWeek($days){
     echo "<thead>";
         echo "<tr>"; 
             foreach($days as $day) {
@@ -38,7 +38,6 @@
   function showDays($firstDayOfWeek, $monthDays, $filename) {
 
     $markedDays = saveDays($filename);
-    $isMarked = true;
     $dayOfMonth = 1;
     $currentDay = date("j");
 

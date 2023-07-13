@@ -27,7 +27,7 @@
     echo "<thead>";
         echo "<tr>"; 
             foreach($days as $day) {
-                echo "<td>{$day}</td>";
+                echo "<td class='day-cell'>{$day}</td>";
             }
         echo "</tr>"; 
     echo "</thead>";
@@ -52,26 +52,26 @@
                 for ($col = 1; $col <= 7; $col++) {
                     // Check if the current day is valid
                     if (($row == 1 && $col < $firstDayOfWeek) || ($dayOfMonth > $monthDays)) {
-                        echo "<td>&nbsp;</td>";
+
+                        echo "<td id='empty'>&nbsp;</td>";
                     } else {
                         // Check if the current day is marked
                         $isMarked = in_array($dayOfMonth, $markedDays);
             
-                        $class = $isMarked ? "marked" : "";
-                        
+                        $class = $isMarked ? "marked" : ""; 
                         $action = $class ? "deleteDay" : "addDay";
-                        $button = $class ? 'Del' : 'Add';
 
                         $today = $dayOfMonth == $currentDay ? "today" : "";
 
                         // Create a form field for the current day
-                        echo "<td class='$class' id={$today}> $dayOfMonth";
-                        echo "<br>";
+                        echo "<td class='$class' id={$today}>";
                             echo "<form method='POST'>";
-                                echo "<input type='hidden' name='{$action}' value='$dayOfMonth'>";
-                                echo "<input type='submit' value='{$button}' >";
+                                echo "<button type='submit' name='{$action}' value='$dayOfMonth' class='daybutton'>";                                
+                                echo "<span>{$dayOfMonth}</span>"; 
+                                echo "</button>";
                             echo "</form>";
                         echo "</td>";
+                        
             
                         // Increment the current day
                         $dayOfMonth++;

@@ -1,3 +1,8 @@
 .marked {
   background-color: yellow;
 }
+
+#today {
+  border-style: solid;
+  border-color: #0000ff;
+}

@@ -39,7 +39,8 @@
 
     $markedDays = saveDays($filename);
     $isMarked = true;
-    $currentDay = 1;
+    $dayOfMonth = 1;
+    $currentDay = date("j");
 
 
     echo "<tbody>";
@@ -51,27 +52,29 @@
                 // Create columns for the calendar
                 for ($col = 1; $col <= 7; $col++) {
                     // Check if the current day is valid
-                    if (($row == 1 && $col < $firstDayOfWeek) || ($currentDay > $monthDays)) {
+                    if (($row == 1 && $col < $firstDayOfWeek) || ($dayOfMonth > $monthDays)) {
                         echo "<td>&nbsp;</td>";
                     } else {
                         // Check if the current day is marked
-                        $isMarked = in_array($currentDay, $markedDays);
+                        $isMarked = in_array($dayOfMonth, $markedDays);
             
-                        // Add the 'marked' class if the day is marked
                         $class = $isMarked ? "marked" : "";
                         $action = $class ? "deleteDay" : "addDay";
                         $button = $class ? 'Delete' : 'Add';
+
+                        $today = $dayOfMonth == $currentDay ? "today" : "";
+
                         // Create a form field for the current day
-                        echo "<td class='$class'>$currentDay";
+                        echo "<td class='$class' id={$today}> $dayOfMonth";
                         echo "<br>";
                             echo "<form method='POST'>";
-                                echo "<input type='hidden' name='{$action}' value='$currentDay'>";
+                                echo "<input type='hidden' name='{$action}' value='$dayOfMonth'>";
                                 echo "<input type='submit' value='{$button}' >";
                             echo "</form>";
                         echo "</td>";
             
                         // Increment the current day
-                        $currentDay++;
+                        $dayOfMonth++;
                     }
                 }
         

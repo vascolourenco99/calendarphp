@@ -59,8 +59,9 @@
                         $isMarked = in_array($dayOfMonth, $markedDays);
             
                         $class = $isMarked ? "marked" : "";
+                        
                         $action = $class ? "deleteDay" : "addDay";
-                        $button = $class ? 'Delete' : 'Add';
+                        $button = $class ? 'Del' : 'Add';
 
                         $today = $dayOfMonth == $currentDay ? "today" : "";
 

@@ -23,7 +23,7 @@
             echo "</div>";
 
             echo "<div class='events'>";
-                echo "<h1>Events:</h1>";
+                echo "<h1>Events List:</h1>";
                 showEvents($filename);
             echo "</div>";
             

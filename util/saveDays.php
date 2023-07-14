@@ -7,7 +7,7 @@
             if (isset($_POST['submit'])) {
 
                 if ($_POST['submit'] === 'addEvent') {
-
+                    
                     $dayOfMonth = $_POST['dayOfMonth'];
                     $eventText = $_POST['addEvent'];
                     $eventHour = $_POST['addHour'];

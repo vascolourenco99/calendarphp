@@ -27,7 +27,7 @@
     echo "<thead>";
       echo "<tr>"; 
           foreach($days as $day) {
-            echo "<td class='day-cell'>{$day}</td>";
+            echo "<td class='day-cell font'>{$day}</td>";
           }
       echo "</tr>"; 
     echo "</thead>";
@@ -58,19 +58,23 @@
 
                         // Check if the current day is marked
                         $today = $dayOfMonth == $currentDay ? "today" : "";
+                        $class = $dayOfMonth < $currentDay ? "marked" : "";
 
-                        echo "<td id={$today}>$dayOfMonth";
+                        echo "<td id='{$today}' class='{$class}'>";
+
+                          echo "<div class='top-day'>";
+                            echo "<span class='font'>$dayOfMonth</span>";
+                          echo "</div>";
+
                           echo "<form method='POST'>";
+                            echo "<input type='hidden' name='dayOfMonth' value='$dayOfMonth' required>";
+                            echo "<input type='text' name='addEvent' placeholder='Write your event...' required>";
+                          
+                            echo "<div class='bottom-day'>";
+                              echo "<input type='time' name='addHour' required>";
+                              echo "<button type='submit' name='submit' value='addEvent'>Add Event</button>";
+                            echo "</div>";
 
-                            echo "<input type='hidden' name='dayOfMonth' value='$dayOfMonth'>";
-
-                            echo "<label>Write Event:</label>";
-                            echo "<input type='text' name='addEvent'>";
-
-                            echo "<label>Hours:</label>";
-                            echo "<input type='time' name='addHour'>";
-
-                            echo "<button type='submit' name='submit' value='addEvent'>Add Event</button>";
                           echo "</form>";
                         echo "</td>";
             

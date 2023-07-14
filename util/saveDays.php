@@ -1,27 +1,42 @@
 <?php
 
-    function saveDays($filename){
-        $markedDays = [];
+    if (!function_exists('saveDaysEvents')) {
+        function saveDaysEvents($filename){
+            $daysAndEvents = [];
 
-        if (isset($_POST['addDay'])) {
-            $day = $_POST['addDay'];
-            $markedDays = file_exists($filename) ? file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
-            
-            if (!in_array($day, $markedDays)) {
-                $markedDays[] = $day;
-                file_put_contents($filename, implode(PHP_EOL, $markedDays));
-            }
-        } elseif (isset($_POST['deleteDay'])) {
-            $day = $_POST['deleteDay'];
-            $markedDays = file_exists($filename) ? file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
-            
-            $index = array_search($day, $markedDays);
-            if ($index !== false) {
-                unset($markedDays[$index]);
-                file_put_contents($filename, implode(PHP_EOL, $markedDays));
-            }
+            if (isset($_POST['submit'])) {
+
+                if ($_POST['submit'] === 'addEvent') {
+
+                    $dayOfMonth = $_POST['dayOfMonth'];
+                    $eventText = $_POST['addEvent'];
+                    $eventHour = $_POST['addHour'];
+                
+                    $daysAndEvents = file_exists($filename) ? unserialize(file_get_contents($filename)) : [];
+                
+                    $daysAndEvents[$dayOfMonth] = [
+                        'eventText' => $eventText,
+                        'eventHour' => $eventHour
+                    ];
+                
+                    file_put_contents($filename, serialize($daysAndEvents));
+
+                } elseif (isset($_POST['submit']) && $_POST['submit'] === 'deleteEvent') {
+                
+                    $deleteDay = $_POST['deleteDay'];
+
+                    $daysAndEvents = unserialize(file_get_contents($filename));
+        
+                    if (isset($daysAndEvents[$deleteDay])) {
+
+                        unset($daysAndEvents[$deleteDay]);
+                        
+                        file_put_contents($filename, serialize($daysAndEvents));
+                    }
+                }
+            } 
+
+            return $daysAndEvents;
         }
-
-        return $markedDays;
     }
 ?>

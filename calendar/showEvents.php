@@ -23,7 +23,7 @@
                     $eventHour = $eventData['eventHour'];
         
                     echo "<div class='event-info'>";
-                        echo "day: $day<br>";
+                        echo "Day: $day<br>";
                         echo "Event: $eventText.<br>";
                         echo "Hour: $eventHour<br>";
                     echo "</div>";

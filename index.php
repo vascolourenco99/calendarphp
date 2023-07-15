@@ -10,6 +10,7 @@
         include './calendar/showEvents.php';
         include_once './components/modal.php';
 
+        // Global variables
         $month = date("n");
         $year = date("Y");
         $monthDays = cal_days_in_month(CAL_GREGORIAN, $month, $year);
@@ -17,6 +18,7 @@
         $daysOfTheWeek = array("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"); 
         $filename = "./db/eventsDays.txt";
 
+        // display UI
         echo "<div class='calendar-container'>";
         
             echo "<div class='calendar'>";

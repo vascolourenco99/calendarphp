@@ -29,6 +29,7 @@
     echo "</thead>";
   }
 
+
   function showDays($firstDayOfWeek, $monthDays, $filename) {
 
     saveDaysEvents($filename);
@@ -46,6 +47,7 @@
           
                 // Create columns for the calendar
                 for ($col = 1; $col <= 7; $col++) {
+
                       // Check if the current day is valid
                     if (($row == 1 && $col < $firstDayOfWeek) || ($dayOfMonth > $monthDays)) {
   
@@ -53,23 +55,27 @@
                     } else {
   
                         // Check if the current day is marked
-                        $today = $dayOfMonth == $currentDay ? "today" : "";
                         $class = $dayOfMonth < $currentDay ? "marked" : "";
 
+                        // Check if the current day is today
+                        $today = $dayOfMonth == $currentDay ? "today" : "";
+
+                        // Check if exists events in the dayMonth variable
                         if (isset($daysAndEvents[$dayOfMonth]['quantity'])) {
                           $eventQuantity = $daysAndEvents[$dayOfMonth]['quantity'];
                         } else {
                             $eventQuantity = '';
                         }
 
-  
+                        // display UI
                         echo "<td id='{$today}' class='{$class}'>";
                           
                           echo "<div class='top-day'>";
                             echo "<span class='font'>$dayOfMonth</span>";
                             echo "<span class='font'>$eventQuantity</span>";
                           echo "</div>";
-  
+                        
+                          // Modal open button
                           echo "<div class='bottom-day'>";
                             if ($dayOfMonth >= $currentDay) {
                               echo "<button name='open' onclick='openForm($dayOfMonth)'>+</button>";
@@ -87,7 +93,7 @@
         }
   
       echo "</tbody>";
-      
+
     }
 
   }

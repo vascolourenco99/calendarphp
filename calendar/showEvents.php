@@ -12,12 +12,15 @@
             // sort events by date
             ksort($daysAndEvents);
 
+            // Diplay UI
             if(empty($daysAndEvents)) {
 
                 echo "<div class='event-info'>";
                     echo "No events. ";
                 echo "</div>";
+                
             } else {
+
                 foreach ($daysAndEvents as $day => $eventData) {
                     $eventText = $eventData['eventText'];
                     $eventHour = $eventData['eventHour'];

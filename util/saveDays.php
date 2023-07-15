@@ -4,6 +4,7 @@
         function saveDaysEvents($filename){
             $daysAndEvents = [];
 
+            // Write events
             if (isset($_POST['submit'])) {
 
                 if ($_POST['submit'] === 'addEvent') {
@@ -23,7 +24,9 @@
                 
                     file_put_contents($filename, serialize($daysAndEvents));
 
-                } elseif (isset($_POST['submit']) && $_POST['submit'] === 'deleteEvent') {
+                }   
+                    // Delete events
+                    elseif (isset($_POST['submit']) && $_POST['submit'] === 'deleteEvent') {
                 
                     $deleteDay = $_POST['deleteDay'];
 

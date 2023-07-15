@@ -2,12 +2,14 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="bootstrap.css"/>
         <title>Calendário</title>
     </head>
     <body>
         <?php 
         include './calendar/showCalendar.php'; 
-        include './calendar/showEvents.php'; 
+        include './calendar/showEvents.php';
+        include_once './components/modal.php';
 
         $month = date("n");
         $year = date("Y");
@@ -28,9 +30,13 @@
             echo "</div>";
             
         echo "</div>";
-        
+
+        modal();
+
         ?>
+
     </body>
+    <script src="myScript.js"></script>
 </html>
 
 

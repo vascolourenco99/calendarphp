@@ -35,7 +35,7 @@ th {
 td {
   border: 2px solid black;
   padding: 10px;
-  height: 20px;
+  height: 50px;
 }
 
 .day-cell {
@@ -60,6 +60,81 @@ td {
   font-weight: bolder;
 }
 
+.top-day {
+  display: flex;
+  justify-content: start;
+  margin-bottom: 8%;
+}
+
+.bottom-day {
+  display: flex;
+  justify-content: end;
+  margin-top: 8%;
+  margin-left: 60px;
+}
+
+button[name="open"] {
+  padding: 6px;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 60%;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ------------ information event --------- */
+.event-info {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* ------------ delete event --------- */
+
+button[value="deleteEvent"] {
+  padding: 8px 16px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ----------- Modal -------------------- */
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #838383;
+  width: 20%;
+  height: 20%;
+  border: 2px solid black;
+}
+
+.modal-container {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.top-modal {
+  margin: 10px 20px 15px 20px;
+}
+
+.mid-modal {
+  display: flex;
+  justify-content: start;
+  margin-left: 20px;
+}
+
+.bottom-modal {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 14%;
+}
+
 input[type="text"] {
   padding: 4px;
   border: 1px solid #ccc;
@@ -80,42 +155,4 @@ input[type="time"] {
   box-sizing: border-box;
 }
 
-button[name="submit"] {
-  padding: 6px;
-  background-color: #555454;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.top-day {
-  display: flex;
-  justify-content: end;
-  margin-bottom: 8%;
-}
-
-.bottom-day {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 8%;
-}
-
-/* ------------ delete event --------- */
-
-.event-info {
-  margin-bottom: 10px;
-  font-size: 18px;
-}
-
-button[value="deleteEvent"] {
-  padding: 8px 16px;
-  background-color: #f44336;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-}
 /* ----------- experiencias -------------------- */

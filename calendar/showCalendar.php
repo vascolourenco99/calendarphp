@@ -33,50 +33,64 @@
 
     saveDaysEvents($filename);
 
-    $dayOfMonth = 1;
-    $currentDay = date("j");
+    if (file_exists($filename)){
+      $daysAndEvents = unserialize(file_get_contents($filename));
+      $dayOfMonth = 1;
+      $currentDay = date("j");
+  
+      echo "<tbody>";
+  
+          // Create rows for the calendar
+          for ($row = 1; $row <= 6; $row++) {
+              echo "<tr>";
+          
+                // Create columns for the calendar
+                for ($col = 1; $col <= 7; $col++) {
+                      // Check if the current day is valid
+                    if (($row == 1 && $col < $firstDayOfWeek) || ($dayOfMonth > $monthDays)) {
+  
+                      echo "<td id='empty'>&nbsp;</td>";
+                    } else {
+  
+                        // Check if the current day is marked
+                        $today = $dayOfMonth == $currentDay ? "today" : "";
+                        $class = $dayOfMonth < $currentDay ? "marked" : "";
 
-    echo "<tbody>";
+                        if (isset($daysAndEvents[$dayOfMonth]['quantity'])) {
+                          $eventQuantity = $daysAndEvents[$dayOfMonth]['quantity'];
+                        } else {
+                            $eventQuantity = '';
+                        }
 
-        // Create rows for the calendar
-        for ($row = 1; $row <= 6; $row++) {
-            echo "<tr>";
-        
-              // Create columns for the calendar
-              for ($col = 1; $col <= 7; $col++) {
-                    // Check if the current day is valid
-                  if (($row == 1 && $col < $firstDayOfWeek) || ($dayOfMonth > $monthDays)) {
+  
+                        echo "<td id='{$today}' class='{$class}'>";
+                          
+                          echo "<div class='top-day'>";
+                            echo "<span class='font'>$dayOfMonth</span>";
+                            echo "<span class='font'>$eventQuantity</span>";
+                          echo "</div>";
+  
+                          echo "<div class='bottom-day'>";
+                            if ($dayOfMonth >= $currentDay) {
+                              echo "<button name='open' onclick='openForm($dayOfMonth)'>+</button>";
+                            }
+                          echo "</div>";
+  
+                        echo "</td>";
+  
+                        // Increment the current day
+                        $dayOfMonth++;
+                    }
+                }
+          
+              echo "</tr>";
+        }
+  
+      echo "</tbody>";
 
-                    echo "<td id='empty'>&nbsp;</td>";
-                  } else {
 
-                      // Check if the current day is marked
-                      $today = $dayOfMonth == $currentDay ? "today" : "";
-                      $class = $dayOfMonth < $currentDay ? "marked" : "";
+    }
 
-                      echo "<td id='{$today}' class='{$class}'>";
-                        
-                        echo "<div class='top-day'>";
-                          echo "<span class='font'>$dayOfMonth</span>";
-                        echo "</div>";
-
-                        echo "<div class='bottom-day'>";
-                          if ($dayOfMonth >= $currentDay) {
-                            echo "<button name='open' onclick='openForm($dayOfMonth)'>+</button>";
-                          }
-                        echo "</div>";
-
-                      echo "</td>";
-
-                      // Increment the current day
-                      $dayOfMonth++;
-                  }
-              }
-        
-            echo "</tr>";
-      }
-
-    echo "</tbody>";
         
   }
 

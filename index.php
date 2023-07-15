@@ -36,7 +36,7 @@
         ?>
 
     </body>
-    <script src="myScript.js"></script>
+    <script src="script.js"></script>
 </html>
 
 

@@ -11,12 +11,14 @@
                     $dayOfMonth = $_POST['dayOfMonth'];
                     $eventText = $_POST['addEvent'];
                     $eventHour = $_POST['addHour'];
+                    $event = $_POST['extraInput'];
                 
                     $daysAndEvents = file_exists($filename) ? unserialize(file_get_contents($filename)) : [];
                 
                     $daysAndEvents[$dayOfMonth] = [
                         'eventText' => $eventText,
-                        'eventHour' => $eventHour
+                        'eventHour' => $eventHour,
+                        'quantity' => $event
                     ];
                 
                     file_put_contents($filename, serialize($daysAndEvents));

@@ -1,4 +1,4 @@
-This PHP code is a simple calendar application that allows users to view and manage events for specific days. The code consists of several important functions that handle the display of the calendar, events, and a modal window for adding new events. Here's a brief explanation of each part:
+This PHP code is a simple `calendar application` that allows users to view and manage events for specific days. The code consists of several important functions that handle the display of the calendar, events, and a modal window for adding new events. Here's a brief explanation of each part:
 
 The PHP Functions:
 

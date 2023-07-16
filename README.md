@@ -1,4 +1,11 @@
+# Calendar:
+
 This PHP code is a simple `calendar application` that allows users to view and manage events for specific days. The code consists of several important functions that handle the display of the calendar, events, and a modal window for adding new events. Here's a brief explanation of each part:
+
+## Stack:
+- `PHP`
+- `CSS`
+- `JavaScript`
 
 ## The PHP Functions:
 
@@ -28,3 +35,8 @@ It reads and writes events data to a file named "eventsDays.txt" using serializa
 The HTML part contains the structure of the calendar and events display. The calendar is displayed in a table format with each day represented in a cell. The events list is shown next to the calendar.
 
 In addition, there are two simple JavaScript functions (openForm() and closeForm()) that control the visibility of the modal window for adding events.
+
+
+## Resources
+
+- `PHP` documentation: https://www.php.net/manual/en/langref.php 

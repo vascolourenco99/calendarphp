@@ -60,7 +60,7 @@
                         // Check if the current day is today
                         $today = $dayOfMonth == $currentDay ? "today" : "";
 
-                        // Check if exists events in the dayMonth variable
+                        // Check if exists events in the dayMonth key
                         if (isset($daysAndEvents[$dayOfMonth]['quantity'])) {
                           $eventQuantity = $daysAndEvents[$dayOfMonth]['quantity'];
                         } else {

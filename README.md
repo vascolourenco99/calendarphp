@@ -3,6 +3,7 @@
 This PHP code is a simple `calendar application` that allows users to view and manage events for specific days. The code consists of several important functions that handle the display of the calendar, events, and a modal window for adding new events. Here's a brief explanation of each part:
 
 ## Stack:
+
 - `PHP`
 - `CSS`
 - `JavaScript`
@@ -25,7 +26,7 @@ It also provides an option to delete events.
 The `modal()` Function:
 
 This function creates a modal window that allows users to add new events.
-The modal includes input fields for selecting the event day, event text, and event hour, along with "Add Event" and "Close" buttons.
+The modal includes input fields for event text, and event hour, along with "Add Event" and "Close" buttons.
 
 The `saveDaysEvents()` Function:
 
@@ -36,7 +37,6 @@ The HTML part contains the structure of the calendar and events display. The cal
 
 In addition, there are two simple JavaScript functions (openForm() and closeForm()) that control the visibility of the modal window for adding events.
 
-
 ## Resources
 
-- `PHP` documentation: https://www.php.net/manual/en/langref.php 
+- `PHP` documentation: https://www.php.net/manual/en/langref.php
